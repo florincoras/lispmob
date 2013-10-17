@@ -509,7 +509,7 @@ void process_nl_new_route (struct nlmsghdr *nlh)
         return;
     }
 
-    if (rtm->rtm_table != RT_TABLE_MAIN && rtm->rtm_type != RTN_UNICAST ) {
+    if (rtm->rtm_table != RT_TABLE_MAIN || rtm->rtm_type != RTN_UNICAST ) {
         /* Not interested in routes/gateways affecting tables other the main routing table */
         return;
     }
